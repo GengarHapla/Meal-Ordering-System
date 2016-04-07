@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+}
+
+.mainContainer {
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+    display:-webkit-box;
+	padding: 30px;
+	margin: auto;
+	position: relative;
+	top: 150px;
+}
+
+.buttons {
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.inputs {
+	width: 80%;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+#reg {
+	background-color: #329E32;
+}

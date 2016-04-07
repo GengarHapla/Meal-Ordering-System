@@ -1,0 +1,20 @@
+<div>
+    <md-whiteframe class="md-whiteframe-24dp mainContainer" flex-sm="45" flex-gt-sm="35" flex-gt-md="35" layout layout-align="center center">
+        <section class="inputs">
+            <md-content class="md-no-momentum">
+                <md-input-container class="md-block">
+                    <md-icon><ng-md-icon icon="account_circle" style="fill: #4747B5"></ng-md-icon></md-icon>
+                    <input ng-model="user.login" type="text" placeholder="Login" ng-required="true">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-icon><ng-md-icon icon="vpn_key" style="fill: #353232"></ng-md-icon></md-icon>
+                    <input ng-model="user.password" type="password" placeholder="Password" ng-required="true">
+                </md-input-container>
+            </md-content>
+        </section>
+        <section class="buttons" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button ng-click="performLogin()" class="md-raised md-primary md-hue-2">Login</md-button>
+            <md-button ng-click="performRegister()" class="md-raised md-warn" id="reg">Register</md-button>
+        </section>
+    </md-whiteframe>              
+</div>
