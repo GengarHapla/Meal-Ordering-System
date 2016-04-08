@@ -9,7 +9,13 @@ body {
 	padding: 30px;
 	margin: auto;
 	position: relative;
-	top: 150px;
+	top: 100px;
+	margin-bottom: 100px;
+}
+
+
+.layout-column {
+	width: 95%;
 }
 
 .buttons {
@@ -25,4 +31,17 @@ body {
 
 #reg {
 	background-color: #329E32;
+}
+
+.md-list-item-text {
+	text-align: left;
+}
+
+@media screen and (max-width: 599px) {
+	md-content {
+		width: 95%;
+	}
+	.mainContainer {
+		padding: 8px;
+	}
 }

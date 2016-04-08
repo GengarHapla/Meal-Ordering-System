@@ -1,23 +1,23 @@
-<md-whiteframe class="md-whiteframe-24dp mainContainer" flex-sm="45" flex-gt-sm="35" flex-gt-md="50" layout layout-align="center center">
+<md-whiteframe class="md-whiteframe-24dp mainContainer" flex="70" flex-xs="95" flex-sm="75" flex-gt-sm="60" flex-gt-md="50" layout layout-align="center center">
   <div layout="column" ng-cloak>
     <md-content class="md-padding">
-      <md-tabs md-selected="selectedIndex" md-center-tabs md-swipe-content md-autoselect>
+      <md-tabs md-selected="selectedIndex" md-dynamic-height md-center-tabs md-swipe-content md-autoselect>
         <md-tab ng-repeat="tab in tabs"
                 ng-disabled="tab.disabled"
                 label="{{tab.title}}">
           <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-            <div ng-bind="tab.content"></div>
+            <div flex="90" ng-bind="tab.content"></div>
             <br/>
-            <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
+            <!-- <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button> -->
             <md-content>
               <md-list>
                 <md-list-item class="md-3-line" ng-repeat="item in messages">
                   <div class="md-list-item-text">
-                    <h3>{{item.what}}</h3>
-                    <h4>{{item.who}}</h4>
+                    <h3>{{item.where}}</h3>
+                    <p>{{item.who}}</p>
                     <p>{{item.notes}}</p>
                   </div>
-                  <md-button class="md-secondary">Respond</md-button>
+                  <md-button ng-click="orderDetails($event, $index)" class="md-raised md-primary">Details</md-button>
                   <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
               </md-list>
