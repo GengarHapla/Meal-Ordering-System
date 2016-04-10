@@ -6,9 +6,7 @@
                 ng-disabled="tab.disabled"
                 label="{{tab.title}}">
           <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-            <div flex="90" ng-bind="tab.content"></div>
-            <br/>
-            <!-- <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button> -->
+            <md-button class="md-primary md-raised" ng-click="createOrder($event)">Create new order</md-button>
             <md-content>
               <md-list>
                 <md-list-item class="md-3-line" ng-repeat="item in messages">

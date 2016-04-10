@@ -8,12 +8,12 @@
       .state('login', {
         url: '/login',
         controller: 'loginController',
-        templateUrl: '/login.html',
+        templateUrl: 'app/login/login.html',
       })
       .state('orders', {
         url: '/orders',
         controller: 'ordersController',
-        templateUrl: '/orders.html',
+        templateUrl: 'app/orders/orders.html',
       })
       // .state('chat', {
       //   url: '/chat',

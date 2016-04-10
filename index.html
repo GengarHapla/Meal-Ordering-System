@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Meal ordering coordination system</title>
+        <title>Meal sordering coordination system</title>
         <meta name="description" content="">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="app/style.css">
         <!-- <link rel="stylesheet" href="app.css"> -->
         <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
         <script src="/bower_components/angular/angular.js"></script>
@@ -17,10 +17,12 @@
         <script src="/bower_components/angular-material-icons/angular-material-icons.js"></script>
         <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="/bower_components/oauth-js/dist/oauth.js"></script>
-        <script src="MealOrderingSystem.module.js"></script>
-        <script src="MealOrderingSystem.config.js"></script>
-        <script src="loginController.js"></script>
-        <script src="ordersController.js"></script>
+        <script src="app/MealOrderingSystem.module.js"></script>
+        <script src="app/MealOrderingSystem.config.js"></script>
+        <script src="app/login/loginController.js"></script>
+        <script src="app/orders/ordersController.js"></script>
+        <script src="app/orders/ordersDialogController.js"></script>
+        <script src="app/orders/ordersService.js"></script>
 
 
     </head>
@@ -32,27 +34,6 @@
                 <div ui-view ></div>
             </div>
         </section>
-
-<!--         <div>
-            <md-whiteframe class="md-whiteframe-24dp mainContainer" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
-                <section class="inputs">
-                    <md-content class="md-no-momentum">
-                        <md-input-container class="md-block">
-                            <md-icon><ng-md-icon icon="account_circle" style="fill: #4747B5"></ng-md-icon></md-icon>
-                            <input ng-model="user.login" type="text" placeholder="Login" ng-required="true">
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <md-icon><ng-md-icon icon="vpn_key" style="fill: #353232"></ng-md-icon></md-icon>
-                            <input ng-model="user.password" type="password" placeholder="Password" ng-required="true">
-                        </md-input-container>
-                    </md-content>
-                </section>
-                <section class="buttons" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button ng-click="performLogin()" class="md-raised md-primary md-hue-2">Login</md-button>
-                    <md-button ng-click="performRegister()" class="md-raised md-warn" id="reg">Register</md-button>
-                </section>
-            </md-whiteframe>              
-        </div> -->
 
     </body>
 

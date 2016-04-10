@@ -1,0 +1,39 @@
+<md-dialog aria-label="List dialog">
+  <md-dialog-content>
+    <md-list ng-if="show === 'edit'">
+      <md-list-item>
+        <div class="md-3-line md-list-item-text">
+          <h3>{{details.where}}</h3>
+          <p>{{details.who}}</p>
+          <p>{{details.notes}}</p>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+      <md-list-item ng-repeat="item in items track by $index">
+       <p>Number {{item}}</p>
+    </md-list-item></md-list>
+    <section ng-if="show === 'create'" class="inputs">
+        <md-content class="md-no-momentum">
+            <md-input-container class="md-block">
+                <md-icon><ng-md-icon icon="restaurant" style="fill: #353232"></ng-md-icon></md-icon>
+                <input ng-model="vm.restaurant" type="text" placeholder="Restaurant" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-icon><ng-md-icon icon="event_note" style="fill: #353232"></ng-md-icon></md-icon>
+                <input ng-model="vm.notes" type="text" placeholder="Notes" ng-required="true">
+            </md-input-container>
+        </md-content>
+    </section>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button ng-if="show === 'create'" ng-click="addOrder($scope)" class="md-primary">
+      Add Order
+    </md-button>
+    <md-button ng-if="show === 'edit'" ng-click="updateOrder()" class="md-primary">
+      Update Order
+    </md-button>
+    <md-button ng-click="closeDialog()" class="md-primary">
+      Close
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>
