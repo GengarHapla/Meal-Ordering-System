@@ -49,6 +49,11 @@
             </md-input-container>
         </md-content>
     </section>
+    <div ng-if="warning" id="warning">
+      <b layout="row" layout-align="center center" class="md-padding">
+        {{warning}}
+      </b>
+    </div>
   </md-dialog-content>
   <md-dialog-actions>
     <md-button ng-if="show === 'create'" ng-click="addOrder()" class="md-primary">

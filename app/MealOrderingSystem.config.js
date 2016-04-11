@@ -14,19 +14,7 @@
         url: '/orders',
         controller: 'ordersController',
         templateUrl: 'app/orders/orders.html',
-      })
-      // .state('chat', {
-      //   url: '/chat',
-      //   templateUrl: '/components/html/chat.html',
-      // })
-      // .state('login', {
-      //   url: '/login',
-      //   templateUrl: '/components/html/login.html'
-      // })
-      // .state('register', {
-      //   url: '/register',
-      //   templateUrl: '/components/html/register.html'
-      // })
+      });
   });
 
 }());

@@ -29,8 +29,8 @@ body {
 	display: inline-block;
 }
 
-#reg {
-	background-color: #329E32;
+#warning {
+  color: #c60008;
 }
 
 .md-list-item-text {
