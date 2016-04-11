@@ -1,17 +1,42 @@
-<md-dialog aria-label="List dialog">
+<md-dialog aria-label="List dialog" class="ordersDialog">
   <md-dialog-content>
     <md-list ng-if="show === 'edit'">
       <md-list-item>
-        <div class="md-3-line md-list-item-text">
+        <div class="md-3-line md-list-item-text orderDetails">
           <h3>{{details.where}}</h3>
           <p>{{details.who}}</p>
           <p>{{details.notes}}</p>
+          <p ng-if="details.status !== 'new'" ng-class="details.status">{{details.status}}</p>
         </div>
         <md-divider></md-divider>
       </md-list-item>
-      <md-list-item ng-repeat="item in items track by $index">
-       <p>Number {{item}}</p>
-    </md-list-item></md-list>
+    </md-list>
+    <md-list ng-if="show !=='create'">
+      <md-list-item ng-if="meals" class="md-2-line" ng-repeat="item in meals">
+        <div class="md-list-item-text">
+          <h3><md-icon><ng-md-icon icon="local_restaurant" style="fill: #353232"></ng-md-icon></md-icon>  {{item.meal}}</h3>
+          <p><md-icon><ng-md-icon icon="attach_money" style="fill: #353232"></ng-md-icon></md-icon>  {{item.price}}</p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+      <div ng-if="details.status === 'new'">
+        <md-input-container >
+            <md-icon><ng-md-icon icon="local_restaurant" style="fill: #353232"></ng-md-icon></md-icon>
+            <input ng-model="vm.meal" type="text" placeholder="Meal name">
+        </md-input-container>
+        <md-input-container >
+            <md-icon><ng-md-icon icon="attach_money" style="fill: #353232"></ng-md-icon></md-icon>
+            <input ng-model="vm.price" type="number" placeholder="Meal price">
+        </md-input-container>
+      </div>
+      <md-input-container ng-if="show !== 'create'" class="md-block">
+        <md-select ng-model="vm.status" placeholder="Status">
+          <md-optgroup label="Order status">
+            <md-option ng-value="item.toLowerCase()" ng-repeat="item in validStatus">{{item}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container>
     <section ng-if="show === 'create'" class="inputs">
         <md-content class="md-no-momentum">
             <md-input-container class="md-block">
@@ -26,10 +51,10 @@
     </section>
   </md-dialog-content>
   <md-dialog-actions>
-    <md-button ng-if="show === 'create'" ng-click="addOrder($scope)" class="md-primary">
+    <md-button ng-if="show === 'create'" ng-click="addOrder()" class="md-primary">
       Add Order
     </md-button>
-    <md-button ng-if="show === 'edit'" ng-click="updateOrder()" class="md-primary">
+    <md-button ng-if="show === 'edit'" ng-click="updateOrder(details)" class="md-primary">
       Update Order
     </md-button>
     <md-button ng-click="closeDialog()" class="md-primary">

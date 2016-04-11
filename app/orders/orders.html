@@ -9,13 +9,23 @@
             <md-button class="md-primary md-raised" ng-click="createOrder($event)">Create new order</md-button>
             <md-content>
               <md-list>
-                <md-list-item class="md-3-line" ng-repeat="item in messages">
+                <md-list-item ng-if="selectedIndex === 0" class="md-3-line" ng-repeat="item in orders">
                   <div class="md-list-item-text">
                     <h3>{{item.where}}</h3>
                     <p>{{item.who}}</p>
                     <p>{{item.notes}}</p>
                   </div>
                   <md-button ng-click="orderDetails($event, $index)" class="md-raised md-primary">Details</md-button>
+                  <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+                <md-list-item ng-if="selectedIndex === 1" class="md-3-line" ng-repeat="item in archivedOrders">
+                  <div class="md-list-item-text">
+                    <h3>{{item.where}}</h3>
+                    <p>{{item.who}}</p>
+                    <p>{{item.notes}}</p>
+                    <p ng-class="item.status">{{item.status}}</p>
+                  </div>
+                  <md-button ng-click="orderDetails($event, $index, true)" class="md-raised md-primary">Details</md-button>
                   <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
               </md-list>

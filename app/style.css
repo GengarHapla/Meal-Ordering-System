@@ -37,6 +37,29 @@ body {
 	text-align: left;
 }
 
+.orderDetails p {
+	color: rgba(0,0,0,0.54);
+}
+
+p.ng-binding.delivered {
+	color: rgba(22, 146, 16, 0.83) !important;
+	font-style: italic;
+}
+
+p.ng-binding.ordered {
+	color: rgba(28, 150, 173, 0.83) !important;
+	font-style: italic;
+}
+
+p.ng-binding.finalized {
+	color: rgba(216, 26, 26, 0.83) !important;
+	font-style: italic;
+}
+
+.ordersDialog {
+	padding: 16px;
+}
+
 @media screen and (max-width: 599px) {
 	md-content {
 		width: 95%;
