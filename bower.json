@@ -19,6 +19,7 @@
     "angular": "^1.5.3",
     "angular-material": "^1.0.7",
     "angular-material-icons": "^0.7.0",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "hello": "^1.12.0"
   }
 }

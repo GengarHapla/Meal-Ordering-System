@@ -2,7 +2,12 @@
 
   'use strict';
 
-  angular.module('MealOrderingSystem').controller('ordersController', function ($scope, $mdDialog, ordersService) {
+  angular.module('MealOrderingSystem').controller('ordersController', function ($rootScope, $scope, $mdDialog, $mdToast, ordersService) {
+
+    $rootScope.$on('logged', function () {
+      $mdToast.show($mdToast.simple().textContent('Welcome '+$rootScope.user.name).position('top').hideDelay(10000).capsule(true));
+    })
+
   	var tabs = [
 	      { title: 'Active orders'}, { title: 'History of orders'}
 	    ];
