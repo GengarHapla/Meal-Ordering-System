@@ -7,3 +7,7 @@ To run:
 - npm start
 
 - go to: http://localhost:4000
+
+To run tests:
+
+- npm test

@@ -23,5 +23,8 @@
     "hello": "^1.12.0",
     "firebase": "^2.4.2",
     "angular-mocks": "^1.5.3"
+  },
+  "resolutions": {
+    "angular": "^1.5.3"
   }
 }
