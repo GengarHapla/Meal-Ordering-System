@@ -12,7 +12,7 @@
       $scope.meals = locals.details.meals;
     }
 
-    function validateUser (val, user) {
+    $scope.validateUser = function (val, user) {
       for (var key in val) {
         if (val.hasOwnProperty(key)) {
           if (val[key].added_by === user) {
@@ -28,7 +28,7 @@
     };
 
     $scope.addOrder = function () {
-      if ($scope.vm.restaurant) {
+      if ($scope.vm && $scope.vm.restaurant) {
         $mdDialog.hide();
         var order = {where: $scope.vm.restaurant, who: username, status: 'new'};
         if ($scope.vm.notes) {
@@ -41,16 +41,16 @@
     };
 
     $scope.updateOrder = function (order) {
-      if ($scope.vm.meal && $scope.vm.price) {
-        if (validateUser($scope.meals, username)) {
+      if ($scope.vm && $scope.vm.meal && $scope.vm.price) {
+        if ($scope.validateUser($scope.meals, username)) {
           var dest = ordersService.startConnection(order.id + '/meals');
           ordersService.pushToDatabase(dest, {meal: $scope.vm.meal, price: $scope.vm.price, added_by: username});
           $mdDialog.hide();
         } else {
-          $scope.warning = 'You have added you meal already !';
+          $scope.warning = 'You have added your meal already !';
         }
       }
-      if ($scope.vm.status) {
+      if ($scope.vm && $scope.vm.status) {
         ordersService.updateDatabase(order.id, 'status', $scope.vm.status);
         $mdDialog.hide();
       }

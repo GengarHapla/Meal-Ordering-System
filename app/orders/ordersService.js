@@ -2,7 +2,8 @@
 
   'use strict';
 
-  angular.module('MealOrderingSystem').service('ordersService', function () {
+  angular.module('MealOrderingSystem').service('ordersService', function ($q) {
+    
     function startConnection (base) {
       base = base || '';
       var data = new Firebase('https://fiery-fire-8648.firebaseio.com/' + base);
@@ -13,7 +14,7 @@
       if (base && base instanceof Firebase) {
         base.push(data);
       } else {
-        //throw error
+        return $q.reject(new Error('Supplied base is not firebase'));
       }
     }
 
@@ -22,7 +23,7 @@
         var base = startConnection(url);
         base.child(key).set(data);
       } else {
-        //throw error
+        return $q.reject(new Error('Supply all the required parameters'));
       }
     }
 

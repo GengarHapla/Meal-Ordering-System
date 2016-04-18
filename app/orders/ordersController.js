@@ -13,9 +13,10 @@
 	    ];
     var parentEl = angular.element(document.body);
 
-    var myDataRef = ordersService.startConnection();
+    $scope.myDataRef = ordersService.startConnection();
 
-    $scope.safeApply = function(fn) {
+    //Source: https://coderwall.com/p/ngisma/safe-apply-in-angular-js
+    $scope.safeApply = function (fn) {
       var phase = this.$root.$$phase;
       if(phase == '$apply' || phase == '$digest') {
         if(fn && (typeof(fn) === 'function')) {
@@ -26,22 +27,24 @@
       }
     };
 
-    function listUpdate (snapshot) {
-      if (snapshot.status === 'new') {
-        $scope.orders.push(snapshot);
-      } else if (/finalized|ordered|delivered/i.test(snapshot.status)) {
-        $scope.archivedOrders.push(snapshot);
+    //exposed to $scope for unit testing
+    $scope.listUpdate = function (update) {
+      if (update.status === 'new') {
+        $scope.orders.push(update);
+      } else if (/finalized|ordered|delivered/i.test(update.status)) {
+        $scope.archivedOrders.push(update);
       }
     }
 
-    myDataRef.on('value', function(resp) {
+    //exposed to $scope for unit testing
+    $scope.myDataRef.on('value', function (resp) {
       var orders = resp.val();
       $scope.orders = [];
       $scope.archivedOrders = [];
       for (var key in orders) {
         if (orders.hasOwnProperty(key)) {
           orders[key].id = key;
-          listUpdate(orders[key]);
+          $scope.listUpdate(orders[key]);
         }
       }
       $scope.safeApply();
@@ -55,7 +58,7 @@
       $mdDialog.show({
         parent: parentEl,
         targetEvent: $event,
-        locals: {event: 'create', base: myDataRef},
+        locals: {event: 'create', base: $scope.myDataRef},
         preserveScope: true,
         templateUrl: 'app/orders/ordersDialog.html',
         controller: 'ordersDialogController',
